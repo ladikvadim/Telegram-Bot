@@ -1,0 +1,6 @@
+[My Computer]
+My Computer = "192.168.1.111"
+
+[NI-myRIO-1900]
+NI-myRIO-1900 = "192.168.1.119"
+
