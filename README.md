@@ -1,11 +1,9 @@
 # Telegram-Bot-EN
-Telegram bot implementation using LabVIEW
-
----
-# Telegram-Bot-RU
-## Быстрый старт
-Представленные примеры демонстрируют использование TelegramBotAPI в LabVIEW. Новичкам будет полезно для начала прочесть 
+These examples demonstrate the use of TelegramBotAPI in LabVIEW. Beginners will be useful to start read
 [Bots: An introduction for developers](https://core.telegram.org/bots/api/).
+---
+## Getting Started
+---
 
 ### Используемое программное и аппаратное обеспечение
 Для примера **TelegramBotSimpleExample** необходимо наличие установленной LabVIEW 2015+ и выхода в Интернет.<br> Пример **myRIO+TelegramBOT Demo** дополнительно требует наличия модулей Real-Time и FPGA. Из аппаратных средств - myRIO 1900. Вместо myRIO при небольшой правке проекта можно использовать любое устройство на платформе RIO (sbRIO, CompactRIO).
@@ -55,7 +53,7 @@ Telegram bot implementation using LabVIEW
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/ladikvadim/Telegram-Bot/master/Docs/FrontPanelTelegramBotSimpleExample.PNG">
-  Лицевая панель TelegramBotSimpleExample.vi
+  <br>Лицевая панель TelegramBotSimpleExample.vi
   <img src="https://raw.githubusercontent.com/ladikvadim/Telegram-Bot/master/Docs/BlockDiagramTelegramBotSimpleExample.PNG">
   Блок-диаграмма TelegramBotSimpleExample.vi
 </p>
@@ -97,13 +95,9 @@ Telegram bot implementation using LabVIEW
 Команда, используемая для получения текущего времени myRIO:<br>
 `/gettime` — бот вернёт сообщение о текущем времени myRIO
 
-## Авторы
+## Authors
 
-* **Вадим Ладик** - *Initial work*
+* **Vadim Ladik** - *Initial work*
 
-## Лицензия
-
-Этот проект распространяется под лицензией MIT - см. файл [LICENSE](LICENSE) для получения более подробной информации<br>
+## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
-   
-```
