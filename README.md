@@ -8,7 +8,8 @@ Telegram bot implementation using LabVIEW
 [Bots: An introduction for developers](https://core.telegram.org/bots/api/).
 
 ### Используемое программное и аппаратное обеспечение
-Для работы с примером TelegramBotSimpleExample необходимо наличие установленной LabVIEW 2015+ и выхода в Интернет.С примером myRIO+TelegramBOT Demo дополнительно необходимы модули Real-Time и FPGA. Из аппаратных средств myRIO 1900. Вместо myRIO при небольшой правке проекта можно использовать любое устройство на платформе RIO (sbRIO, CompactRIO).
+Пример TelegramBotSimpleExample. Необходимо наличие установленной LabVIEW 2015+ и выхода в Интернет<br> 
+Пример myRIO+TelegramBOT Demo. Тоже, что и в предыдущем + дополнительно необходимы модули Real-Time и FPGA. Из аппаратных средств - myRIO 1900. Вместо myRIO при небольшой правке проекта можно использовать любое устройство на платформе RIO (sbRIO, CompactRIO).
 
 ## Описание реализованных методов
 Для получения ботом обновлений используется метод **getUpdates** (long polling), для отправки сообщений — метод **sendMessage**. На данный 
