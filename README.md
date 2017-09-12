@@ -1,99 +1,94 @@
 # Telegram-Bot-EN
 These examples demonstrate the use of TelegramBotAPI in LabVIEW. Beginners will be useful to start read
 [Bots: An introduction for developers](https://core.telegram.org/bots/api/).
+<br>The description in Russian  is available [by reference](https://github.com/ladikvadim/Telegram-Bot/blob/master/Docs/Readme_RU.pdf).
 ---
 ## Getting Started
 ---
+### Software and hardware
+Example **TelegramBotSimpleExample** requires installed LabVIEW 2015+ and Internet access.<br> 
+Example **myRIO+TelegramBOT Demo** in addition, requires the presence of modules Real-Time and FPGA, and hardware - myRIO 1900. Instead of myRIO with a small change of the project, you can use any device on the RIO platform (sbRIO, CompactRIO).
 
-### Используемое программное и аппаратное обеспечение
-Для примера **TelegramBotSimpleExample** необходимо наличие установленной LabVIEW 2015+ и выхода в Интернет.<br> Пример **myRIO+TelegramBOT Demo** дополнительно требует наличия модулей Real-Time и FPGA. Из аппаратных средств - myRIO 1900. Вместо myRIO при небольшой правке проекта можно использовать любое устройство на платформе RIO (sbRIO, CompactRIO).
-
-## Описание реализованных методов
-Для получения ботом обновлений используется метод **getUpdates** (long polling), для отправки сообщений — метод **sendMessage**. На данный 
-момент реализованы только эти два метода. Каждое обновление представляет собой массив JSON—сериализованных объектов *Update*.
+## Methods description
+A bot receives updates using method **getUpdates** (long polling) and sends messages using method **sendMessage**. Currently, only these two methods work. Each update is an array of JSON-serialized *Update* objects.
 ### getUpdates
 <p align="center">
   <img src="https://raw.githubusercontent.com/ladikvadim/Telegram-Bot/master/Docs/ConnectorsGetUpdates.PNG">
 </p>
 
-* Входные терминалы:
-   * Token    - token используемого бота.
-   * error in	- входной кластер ошибки.
-* Выходные терминалы:
-  * Token	- token используемого бота.
-  * UpdateUniresal - массив объектов Update.
-  * ConnectionStatus - индикатор статуса соединения.
-  * error out - выходной кластер ошибки.
+* Input terminals:
+   * Token    - bot token.
+   * error in	- input error cluster.
+* Output terminals:
+  * Token	- bot token.
+  * UpdateUniresal - array of *Update* objects.
+  * ConnectionStatus - connection status indicator.
+  * error out - output error cluster.
 
 ### sendMessage
 <p align="center">
   <img src="https://raw.githubusercontent.com/ladikvadim/Telegram-Bot/master/Docs/ConnectorsSendMessage.PNG">
 </p>
 
-* Входные терминалы:
-  * Token - token используемого бота.
-  * MsgType - тип передаваемого сообщения (Text, ReplyKeyboardMarkup, ReplyKeyboardRemove).
-  * ChatId - идентификатор активного чата.
-  * Text - текст передаваемого сообщения.
-  * ReplyKeyboardMarkup - объект, представляющий собой пользовательскую клавиатуру.
-  * error in - входной кластер ошибки.
-* Выходные терминалы:
-  * error out - выходной кластер ошибки.
+* Input terminals:
+  * Token    - bot token.
+  * MsgType - тmessage type (Text, ReplyKeyboardMarkup, ReplyKeyboardRemove).
+  * ChatId - active chat indicator.
+  * Text - message text.
+  * ReplyKeyboardMarkup - [a custom keyboard with reply options](https://core.telegram.org/bots/api/#replykeyboardmarkup).
+  * ReplyToMessageId - parent message ID (in group chats).
+  * error in - input error cluster.
+* Output terminals:
+  * error out - output error cluster.
 
-## Примеры ботов
-Для корректной работы каждого примера необходимо:
-* [создать бота в Telegram](https://core.telegram.org/bots#6-botfather) и вписать в поле "Token" токен, [выданный @Botfather](https://core.telegram.org/bots/api#authorizing-your-bot). 
-Токен должен начинаться с “bot”, например “**bot275887199:AAHmg4xfDwkElXKcgoITf0nrYVpOVlTc8k0**”
-* На своём устройстве начать личный чат с ботом, который был создан на предыдущем шаге.
-  * Для тестирования можно использовать бота ***@ATISIndBot***.
+## Bot examples
+For a correct operation of each example:
+* [create a bot in Telegram](https://core.telegram.org/bots#6-botfather) and write in the field "Token" a token, [which sent @Botfather](https://core.telegram.org/bots/api#authorizing-your-bot). 
+The token must start with "bot", for example “**bot275887199:AAHmg4xfDwkElXKcgoITf0nrYVpOVlTc8k0**”
+* On your device, start a private chat with the bot created in the previous step.
+  * For testing, you can use the ***@ATISIndBot*** bot.
 
 ### TelegramBotSimpleExample
-Рассмотрим пример простейшего бота в LabVIEW. Для этого необходимо открыть **TelegramBotSimpleExample.vi**. На следующих рисунках
-представлены его лицевая панель, которая проста и не требует пояснений и блок-диаграмма.
+Consider the example of the simplest bot in LabVIEW. To do this, open **TelegramBotSimpleExample.vi**. The following figures show its front panel, which is simple and does not require explanations and a block diagram.
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/ladikvadim/Telegram-Bot/master/Docs/FrontPanelTelegramBotSimpleExample.PNG">
-  <br>Лицевая панель TelegramBotSimpleExample.vi
+  <br>TelegramBotSimpleExample.vi Front Panel
   <img src="https://raw.githubusercontent.com/ladikvadim/Telegram-Bot/master/Docs/BlockDiagramTelegramBotSimpleExample.PNG">
-  Блок-диаграмма TelegramBotSimpleExample.vi
+ TelegramBotSimpleExample.vi Block Diagramm
 </p>
 
-Алгоритм работы бота очень прост. Сначала проходит инициализация. Далее в бесконечном цикле с заданным периодом происходит опрос 
-серверов Telegram на наличие новых обновлений. SubVI BuildMsg.vi преобразует JSON объекты **Update** в сообщения. При наличии новых 
-сообщений происходит сопоставление их текста вариантам Case-структуры. На последнем этапе выполнятся отправка ответного сообщения 
-в активный чат.
+Algorithm of the bot is very simple. First, an initialization takes place. Then, in an infinite loop with a specified period, occur poll the Telegram servers for new updates. SubVI BuildMsg.vi converts JSON Update objects to messages. If there are new messages, then their text is compared to variants of the Case structure. At the last stage, the reply message is sent to the active chat.
 
-#### Создание пользовательской клавиатуры.
-Для передачи в чат клавиатуры необходимо выполнить два действия:
-1. Указать тип сообщения для передачи как ***ReplyKeyboardMarkup***.
-2. Заполнить одноименный кластер.
-3. Чтобы удалить клавиатуру необходимо указать тип сообщения как ***ReplyKeyboardRemove***.<br>
-На следующем рисунке показан пример создания пользовательской клавиатуры, которая состоит из четырёх кнопок (Red, Green, Orange, Delete).
+#### How to create a custom keyboard.
+
+In order to send a keyboard to the chat you need to perform two actions:
+1. Specify the type of message to send as ***ReplyKeyboardMarkup***.
+2. Fill the ***ReplyKeyboardMarkup*** cluster.
+<br>To delete the keyboard, you must specify the message type as ***ReplyKeyboardRemove***.
+
+<br>The following figure shows an example of creating a custom keyboard consisting of four buttons (Red, Green, Orange, Delete) and result that is displayed in chat.
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/ladikvadim/Telegram-Bot/master/Docs/CreatingCustomKeyboard.png">
-  Пример создания пользовательской клавиатуры:<br>
-  А — фрагмент блок диаграммы, отвечающий за создание и отправку клавиатуры.<br>
-  Б — результат, отображаемый в чате.
+  Example of creating a custom keyboard:<br>
+  А — block diagram fragment that is responsible for creating and sending the keyboard.<br>
+  Б — result displayed in chat.
 </p>
 
 ### myRIO+TelegramBOT Demo
-Это более сложный пример реализации логики работы бота, хотя смысл его работы остаётся прежним. В данном примере с помощью сообщений в 
-месенджере Telegram, можно изменять характер свечения пользовательских светодиодов LED1—3 на myRIO 1900 и выполнять некоторые другие 
-функции.
+This is a more complex example of implementing the logic of bot, although the meaning of his work remains the same. In this example, using messages in telegram, you can change the glow of custom LED1-3 LEDs on myRIO 1900 and perform some other functions.
 
-Команды, которые используются для изменения характера свечения LED:<br>
-`/led#,Period(ms/us),DutyCycle(%)` - изменяет характер свечения User LED-а (1-3). Например, ***/led1,1000,50***. Для LED1, 2 период задаётся 
-в ms, для LED3 в us. <br>
-`/led#` (без параметров), где # - номер User LED-а (1-3). Например, ***/led1***. Как результат выполнения команды бот вернёт пользовательскую клавиатуру с 
-несколькими кнопками, позволяющими зажигать/тушить светодиод.
+To change LED glow, use next commands::<br>
+`/led#,Period(ms/us),DutyCycle(%)` - changes the character of user LED (1-3) . For example, ***/led1,1000,50***. For LED1, 2 the period is set in ms, forLED3 in us.<br>
+`/led#` (without parameters), # - LED number (1-3). For example, ***/led1***.As a result, bot will return user's keyboard with several buttons, allowing you to on/off the LED.
 
-Команда, используемая для получения данных о погоде в определённом городе:<br>
-`/getweather,City,Region`, где City — обязательный параметр, Region — необязательный параметр.
-Например ***/getweather,miami,us*** — бот вернёт сообщение с данными о погоде в Майами, США. <br>
+To obtain weather data in a certain city, use a command::<br>
+`/getweather,City,Region`, где City — required parameter, Region — optional parameter.
+For example ***/getweather,miami,us*** — bot will return a message with weather data in Miami, USA.<br>
 
-Команда, используемая для получения текущего времени myRIO:<br>
-`/gettime` — бот вернёт сообщение о текущем времени myRIO
+To get the current time of myRIO, use a command:<br>
+`/gettime` — the bot will return a message about myRIO current time.
 
 ## Authors
 
@@ -101,3 +96,9 @@ These examples demonstrate the use of TelegramBotAPI in LabVIEW. Beginners will 
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+
+## Acknowledgments
+* Hat tip to anyone who's code was used
+* Inspiration
+* Sorry for my bad English
+* etc
