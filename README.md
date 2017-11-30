@@ -32,7 +32,7 @@ A bot receives updates using method **getUpdates** (long polling) and sends mess
 
 * Input terminals:
   * Token    - bot token.
-  * MsgType - тmessage type (Text, ReplyKeyboardMarkup, ReplyKeyboardRemove).
+  * MsgType - message type (Text, ReplyKeyboardMarkup, ReplyKeyboardRemove).
   * ChatId - active chat indicator.
   * Text - message text.
   * ReplyKeyboardMarkup - [a custom keyboard with reply options](https://core.telegram.org/bots/api/#replykeyboardmarkup).
