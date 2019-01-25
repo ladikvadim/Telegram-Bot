@@ -12,6 +12,38 @@
 		<Property Name="server.vi.callsEnabled" Type="Bool">true</Property>
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
+		<Item Name="OpenWeatherMap" Type="Folder">
+			<Item Name="TypeDefs" Type="Folder">
+				<Item Name="OpenWeatherMapAPI.Responce.ctl" Type="VI" URL="../OpenWeatherMap/TypeDefs/OpenWeatherMapAPI.Responce.ctl"/>
+				<Item Name="OpenWeatherMapAPI.ResponceLink.ctl" Type="VI" URL="../OpenWeatherMap/TypeDefs/OpenWeatherMapAPI.ResponceLink.ctl"/>
+			</Item>
+			<Item Name="DegreesToWindDirection.vi" Type="VI" URL="../OpenWeatherMap/DegreesToWindDirection.vi"/>
+			<Item Name="GetWheaterData.vi" Type="VI" URL="../OpenWeatherMap/GetWheaterData.vi"/>
+			<Item Name="NumberToString.vi" Type="VI" URL="../OpenWeatherMap/NumberToString.vi"/>
+			<Item Name="UNIXTimeToString.vi" Type="VI" URL="../OpenWeatherMap/UNIXTimeToString.vi"/>
+			<Item Name="WindSpeedToLabel.vi" Type="VI" URL="../OpenWeatherMap/WindSpeedToLabel.vi"/>
+		</Item>
+		<Item Name="Telegram" Type="Folder">
+			<Item Name="Methods" Type="Folder">
+				<Item Name="SupportFiles" Type="Folder">
+					<Item Name="BuildQueryString.vi" Type="VI" URL="../Telegram/Methods/SupportFiles/BuildQueryString.vi"/>
+					<Item Name="BuildSendQueryString.vi" Type="VI" URL="../Telegram/Methods/SupportFiles/BuildSendQueryString.vi"/>
+				</Item>
+				<Item Name="TypeDefs" Type="Folder">
+					<Item Name="CommandList.ctl" Type="VI" URL="../Telegram/Methods/TypeDefs/CommandList.ctl"/>
+					<Item Name="Message.ctl" Type="VI" URL="../Telegram/Methods/TypeDefs/Message.ctl"/>
+					<Item Name="Method.ctl" Type="VI" URL="../Telegram/Methods/TypeDefs/Method.ctl"/>
+					<Item Name="QueryStringItems.ctl" Type="VI" URL="../Telegram/Methods/TypeDefs/QueryStringItems.ctl"/>
+					<Item Name="ReplyKeyboardMarkup.ctl" Type="VI" URL="../Telegram/Methods/TypeDefs/ReplyKeyboardMarkup.ctl"/>
+					<Item Name="sendMessage.ctl" Type="VI" URL="../Telegram/Methods/TypeDefs/sendMessage.ctl"/>
+					<Item Name="SendMessageType.ctl" Type="VI" URL="../Telegram/Methods/TypeDefs/SendMessageType.ctl"/>
+					<Item Name="UpdateUniversal.ctl" Type="VI" URL="../Telegram/Methods/TypeDefs/UpdateUniversal.ctl"/>
+				</Item>
+				<Item Name="getUpdates.vi" Type="VI" URL="../Telegram/Methods/getUpdates.vi"/>
+				<Item Name="sendMessage.vi" Type="VI" URL="../Telegram/Methods/sendMessage.vi"/>
+			</Item>
+			<Item Name="HTMLURLEncoding.vi" Type="VI" URL="../Telegram/HTMLURLEncoding.vi"/>
+		</Item>
 		<Item Name="TelegramBotSimpleExample.vi" Type="VI" URL="../PC/TelegramBotSimpleExample.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
@@ -25,19 +57,6 @@
 				<Item Name="PathToUNIXPathString.vi" Type="VI" URL="/&lt;vilib&gt;/Platform/CFURL.llb/PathToUNIXPathString.vi"/>
 			</Item>
 			<Item Name="BuildMsg.vi" Type="VI" URL="../ProjectFiles/BuildMsg.vi"/>
-			<Item Name="BuildQueryString.vi" Type="VI" URL="../Telegram/Methods/SupportFiles/BuildQueryString.vi"/>
-			<Item Name="BuildSendQueryString.vi" Type="VI" URL="../Telegram/Methods/SupportFiles/BuildSendQueryString.vi"/>
-			<Item Name="CommandList.ctl" Type="VI" URL="../Telegram/Methods/TypeDefs/CommandList.ctl"/>
-			<Item Name="getUpdates.vi" Type="VI" URL="../Telegram/Methods/getUpdates.vi"/>
-			<Item Name="HTMLURLEncoding.vi" Type="VI" URL="../Telegram/HTMLURLEncoding.vi"/>
-			<Item Name="Message.ctl" Type="VI" URL="../Telegram/Methods/TypeDefs/Message.ctl"/>
-			<Item Name="Method.ctl" Type="VI" URL="../Telegram/Methods/TypeDefs/Method.ctl"/>
-			<Item Name="QueryStringItems.ctl" Type="VI" URL="../Telegram/Methods/TypeDefs/QueryStringItems.ctl"/>
-			<Item Name="ReplyKeyboardMarkup.ctl" Type="VI" URL="../Telegram/Methods/TypeDefs/ReplyKeyboardMarkup.ctl"/>
-			<Item Name="sendMessage.ctl" Type="VI" URL="../Telegram/Methods/TypeDefs/sendMessage.ctl"/>
-			<Item Name="sendMessage.vi" Type="VI" URL="../Telegram/Methods/sendMessage.vi"/>
-			<Item Name="SendMessageType.ctl" Type="VI" URL="../Telegram/Methods/TypeDefs/SendMessageType.ctl"/>
-			<Item Name="UpdateUniversal.ctl" Type="VI" URL="../Telegram/Methods/TypeDefs/UpdateUniversal.ctl"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
@@ -134,17 +153,6 @@ DirectoryIndex index.htm
 			<Item Name="LED_Brightnes.vi" Type="VI" URL="../FPGA/RT/LED_Brightnes.vi"/>
 			<Item Name="WaitButtonPress.vi" Type="VI" URL="../FPGA/RT/WaitButtonPress.vi"/>
 		</Item>
-		<Item Name="OpenWeatherMap" Type="Folder">
-			<Item Name="TypeDefs" Type="Folder">
-				<Item Name="OpenWeatherMapAPI.Responce.ctl" Type="VI" URL="../OpenWeatherMap/TypeDefs/OpenWeatherMapAPI.Responce.ctl"/>
-				<Item Name="OpenWeatherMapAPI.ResponceLink.ctl" Type="VI" URL="../OpenWeatherMap/TypeDefs/OpenWeatherMapAPI.ResponceLink.ctl"/>
-			</Item>
-			<Item Name="DegreesToWindDirection.vi" Type="VI" URL="../OpenWeatherMap/DegreesToWindDirection.vi"/>
-			<Item Name="GetWheaterData.vi" Type="VI" URL="../OpenWeatherMap/GetWheaterData.vi"/>
-			<Item Name="NumberToString.vi" Type="VI" URL="../OpenWeatherMap/NumberToString.vi"/>
-			<Item Name="UNIXTimeToString.vi" Type="VI" URL="../OpenWeatherMap/UNIXTimeToString.vi"/>
-			<Item Name="WindSpeedToLabel.vi" Type="VI" URL="../OpenWeatherMap/WindSpeedToLabel.vi"/>
-		</Item>
 		<Item Name="Other" Type="Folder">
 			<Item Name="TypeDefs" Type="Folder">
 				<Item Name="GlobalData.ctl" Type="VI" URL="../ProjectFiles/TypeDefs/GlobalData.ctl"/>
@@ -158,27 +166,6 @@ DirectoryIndex index.htm
 			<Item Name="ReadReference.vi" Type="VI" URL="../ProjectFiles/ReadReference.vi"/>
 			<Item Name="RestrictString.vi" Type="VI" URL="../ProjectFiles/RestrictString.vi"/>
 			<Item Name="WriteLogByRef.vi" Type="VI" URL="../ProjectFiles/WriteLogByRef.vi"/>
-		</Item>
-		<Item Name="Telegram" Type="Folder">
-			<Item Name="Methods" Type="Folder">
-				<Item Name="SupportFiles" Type="Folder">
-					<Item Name="BuildQueryString.vi" Type="VI" URL="../Telegram/Methods/SupportFiles/BuildQueryString.vi"/>
-					<Item Name="BuildSendQueryString.vi" Type="VI" URL="../Telegram/Methods/SupportFiles/BuildSendQueryString.vi"/>
-				</Item>
-				<Item Name="TypeDefs" Type="Folder">
-					<Item Name="Message.ctl" Type="VI" URL="../Telegram/Methods/TypeDefs/Message.ctl"/>
-					<Item Name="Method.ctl" Type="VI" URL="../Telegram/Methods/TypeDefs/Method.ctl"/>
-					<Item Name="QueryStringItems.ctl" Type="VI" URL="../Telegram/Methods/TypeDefs/QueryStringItems.ctl"/>
-					<Item Name="ReplyKeyboardMarkup.ctl" Type="VI" URL="../Telegram/Methods/TypeDefs/ReplyKeyboardMarkup.ctl"/>
-					<Item Name="sendMessage.ctl" Type="VI" URL="../Telegram/Methods/TypeDefs/sendMessage.ctl"/>
-					<Item Name="UpdateUniversal.ctl" Type="VI" URL="../Telegram/Methods/TypeDefs/UpdateUniversal.ctl"/>
-					<Item Name="SendMessageType.ctl" Type="VI" URL="../Telegram/Methods/TypeDefs/SendMessageType.ctl"/>
-					<Item Name="CommandList.ctl" Type="VI" URL="../Telegram/Methods/TypeDefs/CommandList.ctl"/>
-				</Item>
-				<Item Name="getUpdates.vi" Type="VI" URL="../Telegram/Methods/getUpdates.vi"/>
-				<Item Name="sendMessage.vi" Type="VI" URL="../Telegram/Methods/sendMessage.vi"/>
-			</Item>
-			<Item Name="HTMLURLEncoding.vi" Type="VI" URL="../Telegram/HTMLURLEncoding.vi"/>
 		</Item>
 		<Item Name="main.vi" Type="VI" URL="../main.vi"/>
 		<Item Name="Chassis" Type="myRIO Chassis">
@@ -1728,6 +1715,24 @@ DirectoryIndex index.htm
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 			<Item Name="TelegramBot_FPGATarget_TopLevel_054DY+20zVc.lvbitx" Type="Document" URL="../FPGABitfiles/TelegramBot_FPGATarget_TopLevel_054DY+20zVc.lvbitx"/>
+			<Item Name="OpenWeatherMapAPI.Responce.ctl" Type="VI" URL="../OpenWeatherMap/TypeDefs/OpenWeatherMapAPI.Responce.ctl"/>
+			<Item Name="DegreesToWindDirection.vi" Type="VI" URL="../OpenWeatherMap/DegreesToWindDirection.vi"/>
+			<Item Name="GetWheaterData.vi" Type="VI" URL="../OpenWeatherMap/GetWheaterData.vi"/>
+			<Item Name="UNIXTimeToString.vi" Type="VI" URL="../OpenWeatherMap/UNIXTimeToString.vi"/>
+			<Item Name="WindSpeedToLabel.vi" Type="VI" URL="../OpenWeatherMap/WindSpeedToLabel.vi"/>
+			<Item Name="CommandList.ctl" Type="VI" URL="../Telegram/Methods/TypeDefs/CommandList.ctl"/>
+			<Item Name="Message.ctl" Type="VI" URL="../Telegram/Methods/TypeDefs/Message.ctl"/>
+			<Item Name="ReplyKeyboardMarkup.ctl" Type="VI" URL="../Telegram/Methods/TypeDefs/ReplyKeyboardMarkup.ctl"/>
+			<Item Name="SendMessageType.ctl" Type="VI" URL="../Telegram/Methods/TypeDefs/SendMessageType.ctl"/>
+			<Item Name="sendMessage.vi" Type="VI" URL="../Telegram/Methods/sendMessage.vi"/>
+			<Item Name="sendMessage.ctl" Type="VI" URL="../Telegram/Methods/TypeDefs/sendMessage.ctl"/>
+			<Item Name="HTMLURLEncoding.vi" Type="VI" URL="../Telegram/HTMLURLEncoding.vi"/>
+			<Item Name="BuildSendQueryString.vi" Type="VI" URL="../Telegram/Methods/SupportFiles/BuildSendQueryString.vi"/>
+			<Item Name="Method.ctl" Type="VI" URL="../Telegram/Methods/TypeDefs/Method.ctl"/>
+			<Item Name="UpdateUniversal.ctl" Type="VI" URL="../Telegram/Methods/TypeDefs/UpdateUniversal.ctl"/>
+			<Item Name="getUpdates.vi" Type="VI" URL="../Telegram/Methods/getUpdates.vi"/>
+			<Item Name="QueryStringItems.ctl" Type="VI" URL="../Telegram/Methods/TypeDefs/QueryStringItems.ctl"/>
+			<Item Name="BuildQueryString.vi" Type="VI" URL="../Telegram/Methods/SupportFiles/BuildQueryString.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="TlgrmBotDemo" Type="{69A947D5-514E-4E75-818E-69657C0547D8}">
